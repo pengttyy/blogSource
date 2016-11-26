@@ -11,7 +11,7 @@ after_script:
   - git config user.email "${EMAIL}"
   - git add .
   - git commit -m "Travis CI generate push"
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/pengttyy/pengttyy.github.io.git" master:master
+  - git push --quiet "https://${GH_TOKEN}@github.com/pengttyy/pengttyy.github.io.git" master:master
 
 branches:
   only:
