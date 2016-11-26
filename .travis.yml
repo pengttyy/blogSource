@@ -1,20 +1,21 @@
 language: node_js
 node_js: stable
-
 before_script:
-  - git clone "https://${GH_TOKEN}@github.com/pengttyy/pengttyy.github.io.git" public
-
+- git clone "https://${GH_TOKEN}@github.com/pengttyy/pengttyy.github.io.git" public
 script:
-  - hexo g
-
+- hexo g
 after_script:
-  - cd ./public
-  - git config user.name "${USERNAME}"
-  - git config user.email "${EMAIL}"
-  - git add .
-  - git commit -m "Travis CI generate push"
-  - git push origin master:master --quiet
-
+- cd ./public
+- git config user.name "${USERNAME}"
+- git config user.email "${EMAIL}"
+- git add .
+- git commit -m "Travis CI generate push"
+- git push origin master:master --quiet
 branches:
   only:
-    - blogSource
+  - blogSource
+env:
+  global:
+  - secure: oWC9Vx0MprZywuvNOHBQghTygwNX5G1vTiFBmGLnpWzUYaRQP1J+hUtkYCBiyF0E8vYrEv0Xm1RhEXIFcM5PKq2OapflM0CXlpRCyuzN1th8DWKcz0z/1RG9tI8hoDKv5DXOi0BNlxjBA05SciqobZPJInUvyMhcjGP9HBiZ6uUQ6DLlTLdOWOa+ynVtEWx7q1m9m5/aqj+4r4uxePdYYAojbMEvBTQ15KSmBkHPQInAVzYsPnbRE3KF7vAtHIaj4+WshjHhxC/i17flvtbca6mFxPsmGD7ppQuoL6+RwBGfgb/6cdKchHTs2f2dAIDSUysuFotpOIURTqhV74BrwBS6ClAyiixXOU+ygIeREH0lWiMoDIoJvWKxyoIfr3gN3IUg2kdJlitbCWYjUh6ck/eIDXffJltC/w88Kt1RkoxjW9XWGckzgXlSoQG+XAZQ1Uur96lfzeJiv3bCayv2Unq+mu1PmV73dfIBnEAaoI7HRHjaP31/fhPxoN2EbYwNK2S3wxBoS0tW4WnBm2YtowVx9dXu25C+YgPjE0bLKDxHTXaHlcGVl4oe+pfuRwcWK+t7bbDcP7gJAiYSYQjTSPqc4g5Ga1QQW6akjaGgPF+hVgGSW+oHGjqFxqA+ZcqO/oSzT2BYQfjWtAVIHpAlRO0e3qump5g4RaKSBnB6r7I=
+  - secure: FjHdGYk67yfW5dmu7av1d6si3TFY6DZcIitkkhtd6YqfOchpJjyCRLGkLC7Upb+sTclDF/Cjj3yYtjoIWkBjCsfRkDdH6+MccsXqBaHPP6E0MOf4ubcyd1kFCX91izsEyA02UvLddCTB3BzJgB53yr7qem1NzHGuDrCokGwTn7oIU9ID/Fut9gjYQuRa75NecWJaKKGnGtu8JJAbqcT3DaknsE+Y2ibythVGgKCkDyv/7mhdqIOZwsPRSOSY3QmTj3kMU8hHsa9o6z/7fIxc3xdeOrXbcSHYbq6GdUmoQTzaXD1Jlu+ZdByGQYqKuvKqZjr81MLtC7iznWNez4zENtDbux8M5WODTirqvuyqf9zzQPG9/lX+BtiEhieErSP/O4d+nPQWp1KqvZbCphonCpzUvnzhC0ou5jCsDtv38HSR5zi7qX319ffKU2x45j4L1RGfi5Eqz75dXilX9uL+++wZuEAEDeDRWzGp7cZUE7TpZggJgJuddbNtItzNOxEiFDpXFiBEGG8mCB5hGf1KhFNvn/j8YlzHXKRvb+qjAp9PAQ5kkoX3YDb1eruCmRTYl5CGB//hPIpWL3SxVrP9YF8BLXYe8hBTQjskllYhHud/FOKEMc6F3llVncI1FqJLT9EFIr9oJJCWKiDFiZaw0O410TTPn2KEsHfFh9C/6nw=
+  - secure: bQ8aKyLjnaaHtY634BM5KfwNxaNhC4Sa120pXK1LOJPxVVbLg087Xyw2KT+BXoPOrITVGLtbvF8RIYOMf5j75uQtlLtYliYpfsXk+1XIRB8sZRT+6/U4CFudhcEHc/71PfwAV84nwRauWeutopUjcXNIr52GoF0Z+YYJa8Hm5NP+mbiS+RNsE2VhrlC5THzf2ekMVvwU3vCxcZGHya+pUQbzHg6Dr3epitIPzADmcYqATHwALXu8VsB9RrJc77u+sE84sA15/a0ijwGMKuQickMIytDayXyEOfNuwPmvC5KI7AbLsJFleijVX2oK5UAiIgT/AdvjGwBJwBHqgLCIk3Gaz39VuxNQ7oDdMPr3iJzJ9Okco4/nsVind0TKU6TZb4XgWY5g8oTgh4N54kd7sQ+cT5CcbqtPyKYe6SoF999lHeZeQN/AihWK3FGzt1Z/R1RckxDmY1sApqzmYRme9D1R09TVwaa7nQEO0VjmWMCOBi5NDLIH5/ygBxYEQeqQoIfGtVDw4XXj/yg5MtOSh9gFKwkwIXb8L+xiVC4Ast49kUxJxG+4Q4QuM9OQK2IYQ/lUPffYVezfUBB62a+IQvCMqe9By/4ZfuwhpBw5Y4FMBE1sJ7YNMqcF4RA+tLJbA97H4cbacE68fTX05/YTR8NiapHLaw6lt/NqwR2NWd4=
