@@ -2,7 +2,16 @@ language: node_js
 node_js: stable
 
 script:
-  - hexo g&&hexo d
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "${USERNAME}"
+  - git config user.email "${EMAIL}"
+  - git add .
+  - git commit -m "Travis CI generate push"
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/pengttyy/pengttyy.github.io.git" master:master
 
 branches:
   only:
