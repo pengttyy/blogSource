@@ -1,17 +1,19 @@
 language: node_js
 node_js: stable
 
+before_script:
+  - git config user.name "${USERNAME}"
+  - git config user.email "${EMAIL}"
+  - git clone "https://${GH_TOKEN}@github.com/pengttyy/pengttyy.github.io.git" public
+
 script:
   - hexo g
 
 after_script:
   - cd ./public
-  - git init
-  - git config user.name "${USERNAME}"
-  - git config user.email "${EMAIL}"
   - git add .
   - git commit -m "Travis CI generate push"
-  - git push --quiet "https://${GH_TOKEN}@github.com/pengttyy/pengttyy.github.io.git" master:master
+  - git push origin master:master
 
 branches:
   only:
