@@ -12,9 +12,6 @@ before_install:
   - git config user.name "${USERNAME}"
   - git config user.email "${EMAIL}"
 
-install:
-  - npm install -g hexo-cli  
-
 before_script:
 - git clone "git@github.com:pengttyy/pengttyy.github.io.git" public
 script:
