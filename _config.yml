@@ -65,13 +65,6 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-material
 
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: https://github.com/pengttyy/pengttyy.github.io.git
-  branch: master
-
 feed:
   type: atom
   path: atom.xml
