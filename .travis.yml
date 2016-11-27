@@ -10,18 +10,26 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - git config user.name "${USERNAME}"
 - git config user.email "${EMAIL}"
+
+install:
+- npm install
+
 before_script:
 - git clone "git@github.com:pengttyy/pengttyy.github.io.git" public
+
 script:
-- npm install && hexo g
+- hexo g
+
 after_script:
 - cd ./public
 - git add .
 - git commit -m "Travis CI generate push"
 - git push origin master:master
+
 branches:
   only:
   - blogSource
+
 env:
   global:
   - secure: V3XIkOIj+2zeEUZQTtpmWRYaemToZHtq40MIkRqybp25JXD1LHTeFsAZ5zuOjnmMHZWXEmPNDFQ3+qnKQPdH+iXqWG3dGwq1NDlPRlrfBBOQVAm+9c5t4ca4Ptf47/5GP57zlSuhr34ALbyQ2OJDtnIoS0WTfh0xVy2ITm2OjPBW718aKsDcRes+ZD+lmCgd0Gx5VPHUGMVg9ZNAyAbxky+AzA7DXyVG1BCP8bzAL0q9OfBwrBCxWt5M82cwBl3Pc9h5TrWLL/yMMD1YQc/+CRkOZX7o9sc98SkUqxmwfXoU1VhKosQVsTC/AR6sW9+iCLn/Zoifa63yVsk5a8JN6aktU2MoArk1gvJvI1g7aL181ZaG06AnOjVfxS78+8EUrAlCOUgMRIFE2CEhLBhdtbQ/i0PlLqkYGNYLy4euQpvJQ4q7SrJI4gDnPmOLyqBS/qKwBKUbTC6XJOVWTLmdKF62AriD+zq46ge73qALEFFUh34wJhQuQhbgyJF5Dd5OI4Wr81hM0Q6D4RN2159jsPHZy5lrkSIBC8YSa8VdMtzNo37DhO4/j6WFeFzFzgG0T+IeD5cxfD5KhRzZaQbFpyttNLahdMirRofS8CeMWhDnMM6aEUEcJba1m7/igj/Gj3gx3QYhjHBZVHhV5gOgFkb3t40gl0uWE1bym+cwmmI=
